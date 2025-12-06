@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% block title %}Disease Detection - AgriGenius{%
+endblock %} {% block content %}
+<div class="page-container">
+  <div class="tool-container">
+    <div class="tool-header">
+      <i class="fas fa-leaf"></i>
+      <h1>Crop Disease Detection</h1>
+      <p>
+        Upload a photo of your crop for instant disease diagnosis and treatment
+        recommendations
+      </p>
+    </div>
+
+    <div class="upload-area" id="uploadArea">
+      <input
+        type="file"
+        id="diseaseImageInput"
+        accept="image/*"
+        style="display: none"
+      />
+      <div class="upload-content">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <p>Drag & drop an image here or click to upload</p>
+        <span>Supports: PNG, JPG, JPEG, GIF, WEBP</span>
+      </div>
+    </div>
+
+    <div id="imagePreviewArea" class="image-preview-area" style="display: none">
+      <img id="previewImage" src="" alt="Preview" />
+      <button id="removeImageBtn" class="remove-btn">
+        <i class="fas fa-times"></i> Remove
+      </button>
+    </div>
+
+    <button id="analyzeBtn" class="submit-btn" style="display: none">
+      <i class="fas fa-search"></i> Analyze for Diseases
+    </button>
+
+    <div id="loadingDisease" class="loading" style="display: none">
+      <div class="spinner"></div>
+      <p>Analyzing image for diseases...</p>
+    </div>
+
+    <div id="diagnosisResult" class="result-container" style="display: none">
+      <div class="diagnosis-card">
+        <h3><i class="fas fa-stethoscope"></i> Diagnosis Report</h3>
+        <div id="diagnosisContent" class="diagnosis-content"></div>
+      </div>
+    </div>
+
+    <div id="diseaseError" class="error-message" style="display: none"></div>
+  </div>
+</div>
+{% endblock %} {% block extra_js %}
+<script src="{{ url_for('static', filename='js/disease.js') }}"></script>
+{% endblock %}

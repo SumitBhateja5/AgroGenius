@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      id="favicon"
+      rel="shortcut icon"
+      href="../static/logo.png"
+      type="image/x-png"
+    />
+    <title>{% block title %}AgriGenius{% endblock %}</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    {% block extra_css %}{% endblock %}
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img
+          src="{{ url_for('static', filename='logo.png') }}"
+          alt="Logo"
+          class="nav-logo"
+        />
+        <span>AgriGenius</span>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a
+            href="/"
+            class="{% if request.endpoint == 'index' %}active{% endif %}"
+            ><i class="fas fa-home"></i> Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="/chat"
+            class="{% if request.endpoint == 'chat' %}active{% endif %}"
+            ><i class="fas fa-comments"></i> Chat</a
+          >
+        </li>
+        <li>
+          <a
+            href="/weather"
+            class="{% if request.endpoint == 'weather' %}active{% endif %}"
+            ><i class="fas fa-cloud-sun"></i> Weather</a
+          >
+        </li>
+        <li>
+          <a
+            href="/disease"
+            class="{% if request.endpoint == 'disease' %}active{% endif %}"
+            ><i class="fas fa-leaf"></i> Disease</a
+          >
+        </li>
+        <li>
+          <a
+            href="/calculator"
+            class="{% if request.endpoint == 'calculator' %}active{% endif %}"
+            ><i class="fas fa-calculator"></i> Calculator</a
+          >
+        </li>
+        <li>
+          <a
+            href="/sustainability"
+            class="{% if request.endpoint == 'sustainability' %}active{% endif %}"
+            ><i class="fas fa-seedling"></i> Sustainability</a
+          >
+        </li>
+      </ul>
+      <button class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+
+    <main class="main-content">{% block content %}{% endblock %}</main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $("#navToggle").click(function () {
+        $(".nav-links").toggleClass("show");
+      });
+    </script>
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>

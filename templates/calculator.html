@@ -1,0 +1,92 @@
+{% extends "base.html" %} {% block title %}Resource Calculator - AgriGenius{%
+endblock %} {% block content %}
+<div class="page-container">
+  <div class="tool-container">
+    <div class="tool-header">
+      <i class="fas fa-calculator"></i>
+      <h1>Resource Calculator</h1>
+      <p>
+        Calculate water, fertilizer, and resource requirements for your farm
+      </p>
+    </div>
+
+    <div class="tool-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cropType"
+            ><i class="fas fa-seedling"></i> Crop Type</label
+          >
+          <input
+            type="text"
+            id="cropType"
+            placeholder="e.g., Rice, Wheat, Tomato"
+          />
+        </div>
+        <div class="form-group">
+          <label for="areaInput"
+            ><i class="fas fa-ruler-combined"></i> Farm Area</label
+          >
+          <div class="input-with-select">
+            <input type="number" id="areaInput" placeholder="Enter area" />
+            <select id="areaUnit">
+              <option value="acres">Acres</option>
+              <option value="hectares">Hectares</option>
+              <option value="bigha">Bigha</option>
+              <option value="sq meters">Sq Meters</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="soilType"
+            ><i class="fas fa-mountain"></i> Soil Type</label
+          >
+          <select id="soilType">
+            <option value="loamy">Loamy</option>
+            <option value="clay">Clay</option>
+            <option value="sandy">Sandy</option>
+            <option value="silt">Silt</option>
+            <option value="black">Black Soil</option>
+            <option value="red">Red Soil</option>
+            <option value="alluvial">Alluvial</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="growthStage"
+            ><i class="fas fa-chart-line"></i> Growth Stage</label
+          >
+          <select id="growthStage">
+            <option value="seedling">Seedling</option>
+            <option value="vegetative">Vegetative</option>
+            <option value="flowering">Flowering</option>
+            <option value="fruiting">Fruiting</option>
+            <option value="harvesting">Harvesting</option>
+          </select>
+        </div>
+      </div>
+
+      <button id="calculateBtn" class="submit-btn">
+        <i class="fas fa-calculator"></i> Calculate Resources
+      </button>
+    </div>
+
+    <div id="loadingCalc" class="loading" style="display: none">
+      <div class="spinner"></div>
+      <p>Calculating resource requirements...</p>
+    </div>
+
+    <div id="calcResult" class="result-container" style="display: none">
+      <div class="calc-card">
+        <h3><i class="fas fa-clipboard-list"></i> Resource Requirements</h3>
+        <div id="calcContent" class="calc-content"></div>
+      </div>
+    </div>
+
+    <div id="calcError" class="error-message" style="display: none"></div>
+  </div>
+</div>
+{% endblock %} {% block extra_js %}
+<script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
+{% endblock %}

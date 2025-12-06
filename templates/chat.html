@@ -1,0 +1,83 @@
+{% extends "base.html" %} {% block title %}Chat - AgriGenius{% endblock %} {%
+block content %}
+<div class="page-container">
+  <div class="chat-container">
+    <div class="chat-header">
+      <div class="logo-title">
+        <div class="logo-circle">
+          <img
+            src="{{ url_for('static', filename='logo.png') }}"
+            alt="AgriGenius Logo"
+            class="logo-image"
+          />
+        </div>
+        <div>
+          <h1>AgriGenius Chat</h1>
+          <p class="chat-subtitle">
+            Ask anything about agriculture • Upload crop images
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="capabilities-bar">
+      <span><i class="fas fa-check-circle"></i> Crop Advice</span>
+      <span><i class="fas fa-check-circle"></i> Disease Detection</span>
+      <span><i class="fas fa-check-circle"></i> Soil Analysis</span>
+      <span><i class="fas fa-check-circle"></i> Pest Control</span>
+      <span><i class="fas fa-check-circle"></i> Government Schemes</span>
+    </div>
+
+    <div class="chat-messages" id="chatPanel"></div>
+
+    <div
+      class="image-preview-container"
+      id="imagePreviewContainer"
+      style="display: none"
+    >
+      <div class="image-preview-wrapper">
+        <img id="imagePreview" src="" alt="Preview" />
+        <button type="button" id="removeImage" class="remove-image-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <form id="chatbot-form" enctype="multipart/form-data">
+        <input
+          type="file"
+          id="imageInput"
+          name="image"
+          accept="image/*"
+          style="display: none"
+        />
+        <button id="chatbot-form-btn-image" type="button" title="Upload Image">
+          <i class="fas fa-image"></i>
+        </button>
+        <input
+          type="text"
+          id="messageText"
+          name="messageText"
+          placeholder="Ask about crops, diseases, farming tips..."
+        />
+        <button id="chatbot-form-btn" type="submit">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+        <button id="chatbot-form-btn-voice" type="button" title="Voice Input">
+          <i class="fas fa-microphone"></i>
+        </button>
+      </form>
+    </div>
+    <div class="chat-footer">
+      <button id="chatbot-form-btn-clear">Clear Chat</button>
+      <div class="voice-reading">
+        <input type="checkbox" id="voiceReadingCheckbox" />
+        <label for="voiceReadingCheckbox">Enable voice reading</label>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block extra_js %}
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}

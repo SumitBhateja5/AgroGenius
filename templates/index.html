@@ -1,0 +1,117 @@
+{% extends "base.html" %} {% block title %}AgriGenius - Smart Farming
+Assistant{% endblock %} {% block content %}
+<div class="home-container">
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>🌱 Welcome to <span class="highlight">AgriGenius</span></h1>
+      <p class="hero-subtitle">Your AI-Powered Smart Farming Assistant</p>
+      <p class="hero-description">
+        Leveraging multi-modal AI and RAG technology for precision farming,
+        resource optimization, and sustainable agriculture.
+      </p>
+      <a href="/chat" class="cta-button"
+        ><i class="fas fa-comments"></i> Start Chatting</a
+      >
+    </div>
+    <div class="hero-image">
+      <img
+        src="{{ url_for('static', filename='logo.png') }}"
+        alt="AgriGenius"
+      />
+    </div>
+  </div>
+
+  <div class="features-section">
+    <h2>Our Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-comments"></i></div>
+        <h3>AI Chat Assistant</h3>
+        <p>
+          Ask any agriculture-related question. Supports text and image inputs
+          for comprehensive farming advice.
+        </p>
+        <a href="/chat" class="feature-link"
+          >Try Chat <i class="fas fa-arrow-right"></i
+        ></a>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-cloud-sun"></i></div>
+        <h3>Weather-Based Decisions</h3>
+        <p>
+          Get real-time weather data and AI-powered farming recommendations
+          based on current conditions.
+        </p>
+        <a href="/weather" class="feature-link"
+          >Check Weather <i class="fas fa-arrow-right"></i
+        ></a>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+        <h3>Crop Disease Detection</h3>
+        <p>
+          Upload crop images for instant disease identification, diagnosis, and
+          treatment recommendations.
+        </p>
+        <a href="/disease" class="feature-link"
+          >Detect Disease <i class="fas fa-arrow-right"></i
+        ></a>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-calculator"></i></div>
+        <h3>Resource Calculator</h3>
+        <p>
+          Calculate water, fertilizer, and other resource requirements based on
+          crop type and farm size.
+        </p>
+        <a href="/calculator" class="feature-link"
+          >Calculate <i class="fas fa-arrow-right"></i
+        ></a>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-seedling"></i></div>
+        <h3>Sustainability Tips</h3>
+        <p>
+          Learn eco-friendly farming practices for environmental sustainability
+          and long-term soil health.
+        </p>
+        <a href="/sustainability" class="feature-link"
+          >Learn More <i class="fas fa-arrow-right"></i
+        ></a>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-database"></i></div>
+        <h3>RAG Knowledge Base</h3>
+        <p>
+          Powered by retrieval-augmented generation with agricultural documents
+          and government schemes.
+        </p>
+        <a href="/chat" class="feature-link"
+          >Explore <i class="fas fa-arrow-right"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="tech-section">
+    <h2>Technology Stack</h2>
+    <div class="tech-badges">
+      <span class="tech-badge"><i class="fas fa-brain"></i> Groq LLM</span>
+      <span class="tech-badge"><i class="fas fa-eye"></i> Vision AI</span>
+      <span class="tech-badge"><i class="fas fa-search"></i> RAG</span>
+      <span class="tech-badge"><i class="fas fa-database"></i> ChromaDB</span>
+      <span class="tech-badge"
+        ><i class="fas fa-microphone"></i> Voice Input</span
+      >
+      <span class="tech-badge"
+        ><i class="fas fa-volume-up"></i> Voice Output</span
+      >
+    </div>
+  </div>
+</div>
+{% endblock %}

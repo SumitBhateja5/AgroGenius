@@ -1,0 +1,76 @@
+{% extends "base.html" %} {% block title %}Weather Advisory - AgriGenius{%
+endblock %} {% block content %}
+<div class="page-container">
+  <div class="tool-container">
+    <div class="tool-header">
+      <i class="fas fa-cloud-sun"></i>
+      <h1>Weather-Based Farming Decisions</h1>
+      <p>Get real-time weather data and AI-powered farming recommendations</p>
+    </div>
+
+    <div class="tool-form">
+      <div class="form-group">
+        <label for="cityInput"
+          ><i class="fas fa-map-marker-alt"></i> Enter City Name</label
+        >
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="e.g., Mumbai, Delhi, Bangalore"
+        />
+      </div>
+      <div class="form-group">
+        <label for="cropSelect"
+          ><i class="fas fa-seedling"></i> Select Crop Type (Optional)</label
+        >
+        <select id="cropSelect">
+          <option value="general">General Farming</option>
+          <option value="rice">Rice</option>
+          <option value="wheat">Wheat</option>
+          <option value="cotton">Cotton</option>
+          <option value="sugarcane">Sugarcane</option>
+          <option value="vegetables">Vegetables</option>
+          <option value="fruits">Fruits</option>
+          <option value="pulses">Pulses</option>
+        </select>
+      </div>
+      <button id="getWeatherBtn" class="submit-btn">
+        <i class="fas fa-search"></i> Get Weather & Advice
+      </button>
+    </div>
+
+    <div id="weatherResult" class="result-container" style="display: none">
+      <div class="weather-card">
+        <div class="weather-info">
+          <img id="weatherIcon" src="" alt="Weather" />
+          <div class="weather-details">
+            <h2 id="cityName"></h2>
+            <p class="temp" id="temperature"></p>
+            <p id="weatherDesc"></p>
+          </div>
+        </div>
+        <div class="weather-stats">
+          <div class="stat">
+            <i class="fas fa-tint"></i> Humidity: <span id="humidity"></span>
+          </div>
+          <div class="stat">
+            <i class="fas fa-wind"></i> Wind: <span id="windSpeed"></span>
+          </div>
+        </div>
+      </div>
+      <div class="advice-card">
+        <h3><i class="fas fa-lightbulb"></i> Farming Advice</h3>
+        <div id="farmingAdvice" class="advice-content"></div>
+      </div>
+    </div>
+
+    <div id="weatherError" class="error-message" style="display: none"></div>
+    <div id="loadingWeather" class="loading" style="display: none">
+      <div class="spinner"></div>
+      <p>Fetching weather data and generating advice...</p>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block extra_js %}
+<script src="{{ url_for('static', filename='js/weather.js') }}"></script>
+{% endblock %}

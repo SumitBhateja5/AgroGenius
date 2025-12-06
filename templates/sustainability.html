@@ -1,0 +1,96 @@
+{% extends "base.html" %} {% block title %}Sustainability Tips - AgriGenius{%
+endblock %} {% block content %}
+<div class="page-container">
+  <div class="tool-container">
+    <div class="tool-header">
+      <i class="fas fa-seedling"></i>
+      <h1>Sustainable Farming Tips</h1>
+      <p>Learn eco-friendly practices for environmental sustainability</p>
+    </div>
+
+    <div class="quick-topics">
+      <h3>Quick Topics</h3>
+      <div class="topic-buttons">
+        <button
+          class="topic-btn"
+          data-query="What are the best organic farming practices?"
+        >
+          Organic Farming
+        </button>
+        <button
+          class="topic-btn"
+          data-query="How can I conserve water in farming?"
+        >
+          Water Conservation
+        </button>
+        <button
+          class="topic-btn"
+          data-query="How to improve soil health naturally?"
+        >
+          Soil Health
+        </button>
+        <button
+          class="topic-btn"
+          data-query="What are natural pest control methods?"
+        >
+          Natural Pest Control
+        </button>
+        <button class="topic-btn" data-query="Benefits of crop rotation">
+          Crop Rotation
+        </button>
+        <button
+          class="topic-btn"
+          data-query="How to make compost at home for farming?"
+        >
+          Composting
+        </button>
+        <button
+          class="topic-btn"
+          data-query="How to reduce carbon footprint in farming?"
+        >
+          Carbon Footprint
+        </button>
+        <button
+          class="topic-btn"
+          data-query="What is integrated pest management?"
+        >
+          IPM
+        </button>
+      </div>
+    </div>
+
+    <div class="tool-form">
+      <div class="form-group">
+        <label for="sustainQuery"
+          ><i class="fas fa-question-circle"></i> Ask about Sustainable
+          Farming</label
+        >
+        <textarea
+          id="sustainQuery"
+          rows="3"
+          placeholder="e.g., How can I reduce chemical fertilizer usage while maintaining crop yield?"
+        ></textarea>
+      </div>
+      <button id="askSustainBtn" class="submit-btn">
+        <i class="fas fa-leaf"></i> Get Sustainable Advice
+      </button>
+    </div>
+
+    <div id="loadingSustain" class="loading" style="display: none">
+      <div class="spinner"></div>
+      <p>Generating sustainable farming advice...</p>
+    </div>
+
+    <div id="sustainResult" class="result-container" style="display: none">
+      <div class="sustain-card">
+        <h3><i class="fas fa-leaf"></i> Sustainability Advice</h3>
+        <div id="sustainContent" class="sustain-content"></div>
+      </div>
+    </div>
+
+    <div id="sustainError" class="error-message" style="display: none"></div>
+  </div>
+</div>
+{% endblock %} {% block extra_js %}
+<script src="{{ url_for('static', filename='js/sustainability.js') }}"></script>
+{% endblock %}
