@@ -181,4 +181,4 @@ def api_sustainability():
     return jsonify({"answer": response})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(dhost="0.0.0.0", port=int(5000))
